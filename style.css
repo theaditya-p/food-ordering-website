@@ -664,3 +664,20 @@ nav {
     max-width: 375px;
   }
 }
+.search__container {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+#food-search {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+#food-search:focus {
+  border-color: #f54748;
+}

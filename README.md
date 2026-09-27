@@ -1,4 +1,4 @@
-# Foodman - Restaurant Website
+# Orderly - Food Ordering Platform
 
 A responsive restaurant website built with **HTML**, **CSS**, and **JavaScript**.
 

@@ -84,3 +84,19 @@ const swiper = new Swiper(".swiper", {
     el: ".swiper-pagination",
   },
 });
+const searchInput = document.getElementById("food-search");
+const foodCards = document.querySelectorAll(".special__card");
+
+searchInput.addEventListener("input", () => {
+  const searchValue = searchInput.value.toLowerCase().trim();
+
+  foodCards.forEach((card) => {
+    const foodName = card.querySelector("h4").textContent.toLowerCase();
+
+    if (foodName.includes(searchValue)) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
