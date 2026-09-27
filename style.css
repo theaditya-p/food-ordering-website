@@ -681,3 +681,38 @@ nav {
 #food-search:focus {
   border-color: #f54748;
 }
+/* ==========================================
+   FOOD CATEGORY FILTER
+========================================== */
+
+.category__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.category-btn {
+  border: none;
+  outline: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 2rem;
+  background-color: #f5f5f5;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.category-btn:hover {
+  background-color: #ff6b35;
+  color: white;
+}
+
+.category-btn.active {
+  background-color: #ff6b35;
+  color: white;
+}

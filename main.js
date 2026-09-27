@@ -1,18 +1,35 @@
+// ==========================================
+// MOBILE MENU
+// ==========================================
+
 const menuBtn = document.getElementById("menu-btn");
 const navLinks = document.getElementById("nav-links");
 const menuBtnIcon = menuBtn.querySelector("i");
 
-menuBtn.addEventListener("click", (e) => {
+menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("open");
 
   const isOpen = navLinks.classList.contains("open");
-  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+
+  menuBtnIcon.setAttribute(
+    "class",
+    isOpen ? "ri-close-line" : "ri-menu-line"
+  );
 });
 
-navLinks.addEventListener("click", (e) => {
+navLinks.addEventListener("click", () => {
   navLinks.classList.remove("open");
-  menuBtnIcon.setAttribute("class", "ri-menu-line");
+
+  menuBtnIcon.setAttribute(
+    "class",
+    "ri-menu-line"
+  );
 });
+
+
+// ==========================================
+// SCROLL REVEAL ANIMATIONS
+// ==========================================
 
 const scrollRevealOption = {
   distance: "50px",
@@ -20,62 +37,128 @@ const scrollRevealOption = {
   duration: 1000,
 };
 
-ScrollReveal().reveal(".header__image img", {
-  ...scrollRevealOption,
-  origin: "right",
-});
-ScrollReveal().reveal(".header__content h1", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".header__content .section__description", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
-ScrollReveal().reveal(".header__content .header__btn", {
-  ...scrollRevealOption,
-  delay: 1500,
-});
 
-ScrollReveal().reveal(".explore__image img", {
-  ...scrollRevealOption,
-  origin: "left",
-});
-ScrollReveal().reveal(".explore__content .section__header", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".explore__content .section__description", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
-ScrollReveal().reveal(".explore__content .explore__btn", {
-  ...scrollRevealOption,
-  delay: 1500,
-});
+ScrollReveal().reveal(
+  ".header__image img",
+  {
+    ...scrollRevealOption,
+    origin: "right",
+  }
+);
 
-ScrollReveal().reveal(".banner__card", {
-  ...scrollRevealOption,
-  interval: 500,
-});
 
-ScrollReveal().reveal(".chef__image img", {
-  ...scrollRevealOption,
-  origin: "right",
-});
-ScrollReveal().reveal(".chef__content .section__header", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-ScrollReveal().reveal(".chef__content .section__description", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
-ScrollReveal().reveal(".chef__list li", {
-  ...scrollRevealOption,
-  delay: 1500,
-  interval: 500,
-});
+ScrollReveal().reveal(
+  ".header__content h1",
+  {
+    ...scrollRevealOption,
+    delay: 500,
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".header__content .section__description",
+  {
+    ...scrollRevealOption,
+    delay: 1000,
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".header__content .header__btn",
+  {
+    ...scrollRevealOption,
+    delay: 1500,
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".explore__image img",
+  {
+    ...scrollRevealOption,
+    origin: "left",
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".explore__content .section__header",
+  {
+    ...scrollRevealOption,
+    delay: 500,
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".explore__content .section__description",
+  {
+    ...scrollRevealOption,
+    delay: 1000,
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".explore__content .explore__btn",
+  {
+    ...scrollRevealOption,
+    delay: 1500,
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".banner__card",
+  {
+    ...scrollRevealOption,
+    interval: 500,
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".chef__image img",
+  {
+    ...scrollRevealOption,
+    origin: "right",
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".chef__content .section__header",
+  {
+    ...scrollRevealOption,
+    delay: 500,
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".chef__content .section__description",
+  {
+    ...scrollRevealOption,
+    delay: 1000,
+  }
+);
+
+
+ScrollReveal().reveal(
+  ".chef__list li",
+  {
+    ...scrollRevealOption,
+    delay: 1500,
+    interval: 500,
+  }
+);
+
+
+// ==========================================
+// SWIPER TESTIMONIALS
+// ==========================================
 
 const swiper = new Swiper(".swiper", {
   loop: true,
@@ -84,19 +167,112 @@ const swiper = new Swiper(".swiper", {
     el: ".swiper-pagination",
   },
 });
+
+
+// ==========================================
+// FOOD SEARCH
+// ==========================================
+
 const searchInput = document.getElementById("food-search");
-const foodCards = document.querySelectorAll(".special__card");
+
+const foodCards = document.querySelectorAll(
+  ".special__card"
+);
+
 
 searchInput.addEventListener("input", () => {
-  const searchValue = searchInput.value.toLowerCase().trim();
+
+  const searchValue =
+    searchInput.value
+      .toLowerCase()
+      .trim();
+
 
   foodCards.forEach((card) => {
-    const foodName = card.querySelector("h4").textContent.toLowerCase();
+
+    const foodName =
+      card
+        .querySelector("h4")
+        .textContent
+        .toLowerCase();
+
 
     if (foodName.includes(searchValue)) {
+
       card.style.display = "";
+
     } else {
+
       card.style.display = "none";
+
     }
+
   });
+
+});
+
+
+// ==========================================
+// FOOD CATEGORY FILTER
+// ==========================================
+
+const categoryButtons =
+  document.querySelectorAll(".category-btn");
+
+
+categoryButtons.forEach((button) => {
+
+  button.addEventListener("click", () => {
+
+    const selectedCategory =
+      button.dataset.category;
+
+
+    // Remove active state
+    // from all buttons
+
+    categoryButtons.forEach((btn) => {
+
+      btn.classList.remove("active");
+
+    });
+
+
+    // Add active state
+    // to clicked button
+
+    button.classList.add("active");
+
+
+    // Clear search when
+    // changing category
+
+    searchInput.value = "";
+
+
+    // Filter food cards
+
+    foodCards.forEach((card) => {
+
+      const cardCategory =
+        card.dataset.category;
+
+
+      if (
+        selectedCategory === "all" ||
+        cardCategory === selectedCategory
+      ) {
+
+        card.style.display = "";
+
+      } else {
+
+        card.style.display = "none";
+
+      }
+
+    });
+
+  });
+
 });
