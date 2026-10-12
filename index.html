@@ -52,11 +52,15 @@
       <li><a href="#contact">Contact Us</a></li>
     </ul>
 
-    <div class="nav__btn">
-      <button class="btn">
-        <i class="ri-shopping-bag-fill"></i>
-      </button>
-    </div>
+    
+<div class="nav__btn">
+  <button class="btn" id="cart-button" type="button"
+          aria-label="View shopping cart">
+    <i class="ri-shopping-bag-fill"></i>
+    <span id="cart-count" class="cart-count">0</span>
+  </button>
+</div>
+
   </nav>
 
 
@@ -690,6 +694,23 @@
 
 
   <!-- ================= FOOTER ================= -->
+
+  <!-- ================= SHOPPING CART ================= -->
+
+  <section class="cart-section" id="cart">
+    <div class="section__container">
+      <h2 class="section__header">Your Shopping Cart</h2>
+
+      <div id="cart-items">
+        <p class="empty-cart">Your cart is empty.</p>
+      </div>
+
+      <div class="cart-summary">
+        <h3>Total: $<span id="cart-total">0.00</span></h3>
+      </div>
+    </div>
+  </section>
+
 
   <footer
     class="footer"
